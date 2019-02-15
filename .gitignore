@@ -1,0 +1,48 @@
+# CMake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+build
+
+# Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Libraries
+*.lai
+*.la
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# specially generated
+git_info.hpp
+compile_commands.json
+
+# Backup files
+*~
+
+# Log files
+*.log
+
+# modercpp specific
+src/moderncpp
