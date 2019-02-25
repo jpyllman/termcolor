@@ -1,3 +1,15 @@
+2019-02-25  Jens Yllman  <jens.yllman@jpyconsulting.se>
+
+	* CMakeLists.txt: add libcolor, test and thirdparty to the main project
+
+	* test/tst_libcolor.cpp: test the libcolor library
+
+	* libcolor/libcolor.cpp (contrast): implements contrast calculation between two colors
+
+	* libcolor/libcolor.hpp: first use of a library for the color functions
+
+	* preview/preview.cpp (main): small output format change
+
 2019-02-15  Jens Yllman  <jens.yllman@jpyconsulting.se>
 
 	* preview/preview.cpp (main): now we have some output here

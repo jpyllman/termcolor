@@ -7,4 +7,7 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE release)
 endif()
 
+add_subdirectory(thirdparty)
+add_subdirectory(libcolor)
 add_subdirectory(preview)
+add_subdirectory(test)
