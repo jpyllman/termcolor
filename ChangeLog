@@ -1,3 +1,13 @@
+2019-03-02  Jens Yllman  <jens.yllman@jpyconsulting.se>
+
+	* thirdparty/CMakeLists.txt: added fmt as available library
+
+	* preview/CMakeLists.txt: link to fmt
+
+	* preview/preview.cpp (main): changed to use fmt instead of std::cout
+
+	* CMakeLists.txt: turn off compiler specific extensions
+
 2019-02-25  Jens Yllman  <jens.yllman@jpyconsulting.se>
 
 	* CMakeLists.txt: add libcolor, test and thirdparty to the main project

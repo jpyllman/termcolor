@@ -1,21 +1,23 @@
-#include <cstring>
-#include <iostream>
+#include <fmt/color.h>
+#include <fmt/printf.h>
 
-int main(int, char *[], char *[]) {
-  std::cout << "             40m  41m  42m  43m  44m  45m  46m  47m\n";
+constexpr static fmt::terminal_color clr_arr[] = {
+    fmt::terminal_color::black,        fmt::terminal_color::red,
+    fmt::terminal_color::green,        fmt::terminal_color::yellow,
+    fmt::terminal_color::blue,         fmt::terminal_color::magenta,
+    fmt::terminal_color::cyan,         fmt::terminal_color::white,
+    fmt::terminal_color::bright_black, fmt::terminal_color::bright_red,
+    fmt::terminal_color::bright_green, fmt::terminal_color::bright_yellow,
+    fmt::terminal_color::bright_blue,  fmt::terminal_color::bright_magenta,
+    fmt::terminal_color::bright_cyan,  fmt::terminal_color::bright_white};
 
-  for (auto &x : {"    m", "   1m", "  30m", "1;30m", "  31m", "1;31m", "  32m",
-                  "1;32m", "  33m", "1;33m", "  34m", "1;34m", "  35m", "1;35m",
-                  "  36m", "1;36m", "  37m", "1;37m"}) {
-    char const *z = x;
-    for (; (*z != 0) && (*z == 0x20); ++z) {
+void preview_output() {
+  for (auto &fgclr : clr_arr) {
+    for (auto &bgclr : clr_arr) {
+      fmt::print(fmt::fg(fgclr) | fmt::bg(bgclr), " jYp ");
     }
-
-    std::cout << ' ' << x << " \33[" << z << " gYw ";
-    for (auto &y : {"40m", "41m", "42m", "43m", "44m", "45m", "46m", "47m"}) {
-      std::cout << "\33[" << z << "\33[" << y << " gYw ";
-    }
-
-    std::cout << "\33[0m\n";
+    fmt::print("\n");
   }
 }
+
+int main(int, char *[], char *[]) { preview_output(); }
