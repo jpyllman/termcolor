@@ -1,3 +1,16 @@
+2019-03-07  Jens Yllman  <jens.yllman@jpyconsulting.se>
+
+	* thirdparty/CMakeLists.txt: added Clara as thirdparty library
+
+	* preview/preview.cpp (parse_CLI): first try to use Clara for CLI input
+	(main): added use of parse_CLI()
+
+	* preview/CMakeLists.txt: added clara to preview
+
+2019-03-04  Jens Yllman  <jens.yllman@jpyconsulting.se>
+
+	* preview/preview.cpp (preview_output): more refined output
+
 2019-03-02  Jens Yllman  <jens.yllman@jpyconsulting.se>
 
 	* thirdparty/CMakeLists.txt: added fmt as available library
