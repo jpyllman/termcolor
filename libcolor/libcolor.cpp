@@ -5,10 +5,11 @@
 namespace libcolor {
 
 double x2sRGB(double x) {
-  if (x < 0.04045)
+  if (x < 0.04045) {
     x /= 12.92;
-  else
+  } else {
     x = std::pow((x + 0.055) / 1.055, 2.4);
+  }
 
   return x;
 }

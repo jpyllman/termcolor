@@ -1,3 +1,15 @@
+2019-03-19  Jens Yllman  <jens.yllman@jpyconsulting.se>
+
+	* .clang-tidy: added base config for clang-tidy
+
+	* libcolor/libcolor.cpp: fixed some clang-tidy warnings
+
+	* preview/preview.cpp:  fixed some clang-tidy warnings
+
+2019-03-18  Jens Yllman  <jens.yllman@jpyconsulting.se>
+
+	* preview/preview.cpp (parse_CLI): format the version
+
 2019-03-12  Jens Yllman  <jens.yllman@jpyconsulting.se>
 
 	* thirdparty/Clara/CMakeLists.txt: make this library config more stand alone
