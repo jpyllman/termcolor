@@ -6,12 +6,16 @@
 namespace libcolor {
 
 struct RGB {
-  std::uint8_t red;
-  std::uint8_t green;
-  std::uint8_t blue;
+  typedef uint8_t prime_t;
+
+  prime_t red;
+  prime_t green;
+  prime_t blue;
 };
 
 double contrast(RGB c1, RGB c2);
+
+double euclidean_distance(RGB c1, RGB c2);
 
 } // namespace libcolor
 
