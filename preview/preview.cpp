@@ -3,23 +3,23 @@
 #include <fmt/color.h>
 #include <fmt/printf.h>
 
-static fmt::terminal_color clr_normal[] = {
-    fmt::terminal_color::black, fmt::terminal_color::red,
-    fmt::terminal_color::green, fmt::terminal_color::yellow,
-    fmt::terminal_color::blue,  fmt::terminal_color::magenta,
-    fmt::terminal_color::cyan,  fmt::terminal_color::white};
+#include <iostream>
 
-static fmt::terminal_color clr_bright[] = {
-    fmt::terminal_color::bright_black, fmt::terminal_color::bright_red,
-    fmt::terminal_color::bright_green, fmt::terminal_color::bright_yellow,
-    fmt::terminal_color::bright_blue,  fmt::terminal_color::bright_magenta,
-    fmt::terminal_color::bright_cyan,  fmt::terminal_color::bright_white};
+static constexpr int NO_base_colors = 8;
 
-static_assert(sizeof(clr_normal) == sizeof(clr_bright),
-              "both color ranges need to bee same size");
+static constexpr std::array<fmt::terminal_color, NO_base_colors> clr_normal = {
+    fmt::terminal_color::black, fmt::terminal_color::red,     fmt::terminal_color::green, fmt::terminal_color::yellow,
+    fmt::terminal_color::blue,  fmt::terminal_color::magenta, fmt::terminal_color::cyan,  fmt::terminal_color::white};
+
+static constexpr std::array<fmt::terminal_color, NO_base_colors> clr_bright = {
+    fmt::terminal_color::bright_black,  fmt::terminal_color::bright_red,  fmt::terminal_color::bright_green,
+    fmt::terminal_color::bright_yellow, fmt::terminal_color::bright_blue, fmt::terminal_color::bright_magenta,
+    fmt::terminal_color::bright_cyan,   fmt::terminal_color::bright_white};
+
+static_assert(sizeof(clr_normal) == sizeof(clr_bright), "both color ranges need to bee same size");
 
 void preview_output() {
-  for (int i = 0; i < (sizeof(clr_normal) / sizeof(clr_normal[0])); ++i) {
+  for (int i = 0; i < NO_base_colors; ++i) {
     for (auto &j : clr_normal) {
       fmt::print(fmt::fg(clr_normal[i]) | fmt::bg(j), " jYp ");
       fmt::print(" ");
@@ -38,12 +38,11 @@ struct cli_data {
   bool show_version = false;
 };
 
-bool parse_CLI(int NOArgs, char *Args[], cli_data &data) {
+bool parse_CLI(clara::Args const &args, cli_data &data) {
 
-  auto cli = clara::Help(data.show_help) |
-             clara::Opt(data.show_version)["--version"]("version").optional();
+  auto cli = clara::Help(data.show_help) | clara::Opt(data.show_version)["--version"]("version").optional();
 
-  auto cli_result = cli.parse(clara::Args(NOArgs, Args));
+  auto cli_result = cli.parse(args);
 
   if (!cli_result) {
     fmt::print("CLI error: {}\n", cli_result.errorMessage());
@@ -51,10 +50,7 @@ bool parse_CLI(int NOArgs, char *Args[], cli_data &data) {
   }
 
   if (data.show_help) {
-    std::ostringstream oss;
-    oss << cli;
-    fmt::print(oss.str());
-
+    fmt::print("{}", cli);
     return false;
   }
 
@@ -68,7 +64,7 @@ bool parse_CLI(int NOArgs, char *Args[], cli_data &data) {
 
 int main(int NOArgs, char *Args[], char * /*Envs*/[]) {
   cli_data config;
-  if (parse_CLI(NOArgs, Args, config)) {
+  if (parse_CLI(clara::Args(NOArgs, Args), config)) {
     preview_output();
   }
 }

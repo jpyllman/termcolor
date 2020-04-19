@@ -6,7 +6,7 @@
 namespace libcolor {
 
 struct RGB {
-  typedef uint8_t prime_t;
+  using prime_t = uint8_t;
 
   prime_t red;
   prime_t green;

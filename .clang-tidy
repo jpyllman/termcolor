@@ -1,5 +1,5 @@
 ---
-Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-fuchsia-*,-cppcore*,-google-*,-hicpp-*'
+Checks:          '*,-fuchsia-*,-cppcore*,-google-*,-hicpp-*,-modernize-use-trailing-return-type'
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false

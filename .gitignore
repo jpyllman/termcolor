@@ -38,6 +38,9 @@ build
 git_info.hpp
 compile_commands.json
 
+# clangd index files
+.clangd
+
 # Backup files
 *~
 
