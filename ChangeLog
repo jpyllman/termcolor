@@ -1,5 +1,7 @@
 2020-06-24  Jens Yllman  <jens.yllman@jpyconsulting.se>
 
+	* libcolor/libcolor.cpp: better names and structure
+
 	* CMakeLists.txt: make it possible to not include tests in build
 	changed default flags for CXX at Realease and Debug
 
