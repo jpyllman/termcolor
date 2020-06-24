@@ -1,3 +1,19 @@
+# http://www.gnu.org/software/automake
+Makefile.in
+Makefile
+
+# http://www.gnu.org/software/autoconf
+/autom4te.cache
+/aclocal.m4
+/compile
+/configure
+/depcomp
+/install-sh
+/missing
+/config.*
+/stamp-h1
+.deps/
+
 # CMake
 CMakeLists.txt.user
 CMakeCache.txt
@@ -34,18 +50,18 @@ build
 *.out
 *.app
 
+# clangd index files
+.clangd
+
 # specially generated
 git_info.hpp
 compile_commands.json
 
-# clangd index files
-.clangd
-
 # Backup files
 *~
+\#*\#
 
 # Log files
 *.log
 
-# modercpp specific
-src/moderncpp
+# local files to project

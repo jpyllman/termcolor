@@ -1,3 +1,14 @@
+2020-06-24  Jens Yllman  <jens.yllman@jpyconsulting.se>
+
+	* CMakeLists.txt: make it possible to not include tests in build
+	changed default flags for CXX at Realease and Debug
+
+	* .gitignore: updated to my latest version
+
+	* .clang-format: updated to my latest version
+
+	* .clang-tidy: updated to my latest version
+
 2019-03-19  Jens Yllman  <jens.yllman@jpyconsulting.se>
 
 	* .clang-tidy: added base config for clang-tidy
